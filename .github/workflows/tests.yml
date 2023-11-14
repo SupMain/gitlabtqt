@@ -12,12 +12,12 @@ jobs:
 
     steps:
       - name: Checkout du code source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
       - name: Configuration de l'environnement Java
         uses: actions/setup-java@v2
         with:
-          java-version: '11'  # Version de Java que vous souhaitez utiliser
+          java-version: '17'  # Version de Java que vous souhaitez utiliser
           distribution: 'adopt'  # Distribution Java, par exemple, AdoptOpenJDK
 
       - name: Compilation du projet
