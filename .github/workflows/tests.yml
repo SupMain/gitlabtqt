@@ -17,7 +17,8 @@ jobs:
       - name: Configuration de l'environnement Java
         uses: actions/setup-java@v2
         with:
-          java-version: '11'  # Vous pouvez ajuster la version de Java en fonction de votre projet.
+          java-version: '11'  # Version de Java que vous souhaitez utiliser
+          distribution: 'adopt'  # Distribution Java, par exemple, AdoptOpenJDK
 
       - name: Compilation du projet
         run: |
