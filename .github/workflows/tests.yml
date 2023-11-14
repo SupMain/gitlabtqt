@@ -22,16 +22,10 @@ jobs:
 
       - name: Compilation du projet
         run: |
-          # Compilez ici votre projet Java.
-          # Assurez-vous que votre projet contient un fichier de build, tel que pom.xml pour Maven ou build.gradle pour Gradle.
-          # Exemple avec Maven :
-          # mvn clean install
+         mvn clean install
 
       - name: Exécution des tests unitaires
         run: |
-          # Exécutez ici vos tests unitaires Java.
-          # Assurez-vous de spécifier la commande appropriée pour votre projet.
-          # Exemple avec Maven :
-          # mvn test
+          mvn test
 
     # Ajoutez d'autres étapes si nécessaire, telles que la génération de rapports, la notification des résultats, etc.
