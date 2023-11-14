@@ -21,7 +21,7 @@ jobs:
 
       - name: Generate Documentation
         run: |
-          javadoc
+          mvn javadoc::javadoc
           # Générez ici votre documentation. Par exemple, utilisez javadoc, Doxygen, ou l'outil de génération de documentation de votre choix.
           # Assurez-vous que la documentation générée est placée dans un répertoire spécifique, par exemple, "docs".
 
