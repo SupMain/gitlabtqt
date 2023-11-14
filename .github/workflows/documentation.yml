@@ -25,7 +25,7 @@ jobs:
           # Générez ici votre documentation. Par exemple, utilisez javadoc, Doxygen, ou l'outil de génération de documentation de votre choix.
           # Assurez-vous que la documentation générée est placée dans un répertoire spécifique, par exemple, "docs".
 
-      - name: Publish Documentation to gh-pages
+      - name: Publis Documentation to gh-pages
         run: |
           peaceiris/actions-gh-pages@v3
           # Publiez ici la documentation générée sur la branche gh-pages.
