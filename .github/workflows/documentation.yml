@@ -1,0 +1,31 @@
+name: Publish Documentation to gh-pages
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  publish_docs:
+    name: Publish Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+
+      - name: Generate Documentation
+        run: |
+          # Générez ici votre documentation. Par exemple, utilisez javadoc, Doxygen, ou l'outil de génération de documentation de votre choix.
+          # Assurez-vous que la documentation générée est placée dans un répertoire spécifique, par exemple, "docs".
+
+      - name: Publish Documentation to gh-pages
+        run: |
+          # Publiez ici la documentation générée sur la branche gh-pages.
+          # Vous pouvez utiliser l'action "peaceiris/actions-gh-pages" pour publier la documentation.
+          # Assurez-vous de spécifier le répertoire de la documentation générée et la branche cible (gh-pages).
