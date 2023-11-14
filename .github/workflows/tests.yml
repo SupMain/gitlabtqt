@@ -1,4 +1,4 @@
-name: Exécuter les tests unitaires Java
+name: Run Tests
 
 on:
   push:
@@ -6,26 +6,19 @@ on:
       - '*'
 
 jobs:
-  tests:
-    name: Exécuter les tests unitaires
+  test:
+    name: Run Unit Tests
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout du code source
-        uses: actions/checkout@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      - name: Configuration de l'environnement Java
+      - name: Set up Java
         uses: actions/setup-java@v1
         with:
-          java-version: '17'  # Version de Java que vous souhaitez utiliser
-          distribution: 'adopt'  # Distribution Java, par exemple, AdoptOpenJDK
+          java-version: 17
 
-      - name: Compilation du projet
-        run: |
-         mvn clean install
-
-      - name: Exécution des tests unitaires
+      - name: Build and Run Tests
         run: |
           mvn test
-
-    # Ajoutez d'autres étapes si nécessaire, telles que la génération de rapports, la notification des résultats, etc.
