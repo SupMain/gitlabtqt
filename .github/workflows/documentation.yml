@@ -1,33 +1,31 @@
-name: Publish Documentation to gh-pages
+name: Generate and Publish Javadoc
 
 on:
   push:
     branches:
-      - 'master'
+      - main
+
+permissions:
+  contents: write
 
 jobs:
-  publish_docs:
-    name: Publish Documentation
+  deploy-javadoc:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Set up Java
+      - name: Set up JDK 17
         uses: actions/setup-java@v1
         with:
           java-version: 17
 
-      - name: Generate Documentation
-        run: |
-          mvn javadoc::javadoc
-          # Générez ici votre documentation. Par exemple, utilisez javadoc, Doxygen, ou l'outil de génération de documentation de votre choix.
-          # Assurez-vous que la documentation générée est placée dans un répertoire spécifique, par exemple, "docs".
+      - name: Generate Javadoc
+        run: mvn javadoc:javadoc
 
-      - name: Publish Documentation to gh-pages
-        run: |
-          peaceiris/actions-gh-pages@v3
-          # Publiez ici la documentation générée sur la branche gh-pages.
-          # Vous pouvez utiliser l'action "peaceiris/actions-gh-pages" pour publier la documentation.
-          # Assurez-vous de spécifier le répertoire de la documentation générée et la branche cible (gh-pages).
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/site/apidocs/
